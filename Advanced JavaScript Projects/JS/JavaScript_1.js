@@ -1,3 +1,4 @@
+//Performs different actions based on the conditions presented to it
 function Color_Function() {
     var Color_Output;
     var Colors = document.getElementById("Color_Input").value;
@@ -26,3 +27,25 @@ function Color_Function() {
     }
     document.getElementById("Output").innerHTML = Color_Output;
 }
+
+//Displays the first element with the class "Click"
+function Hello_World_Function() {
+    var A = document.getElementsByClassName("Click");
+    A[0].innerHTML = "The text has changed!";
+}
+
+var A = document.getElementById("Graphics");
+var Txt = A.getContext("2d");
+
+//Adds a gradient background to the canvas
+var Grad = Txt.createLinearGradient(0, 0, 500, 0);
+Grad.addColorStop(0, "blue");
+Grad.addColorStop(1, "pink");
+Txt.fillStyle = Grad;
+Txt.fillRect(0, 0, 500, 300);
+
+//Adds text graphics within the canvas and centers them
+Txt.font = "50px Arial";
+Txt.textAlign = "center";
+Txt.strokeStyle = "white";
+Txt.strokeText("Hello World", 250, 150);
