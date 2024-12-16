@@ -4,12 +4,14 @@ function getReceipt() {
     var runningTotal = 0;
     var sizeTotal = 0;
     var sizeArray = document.getElementsByClassName("size");
+    //Adds the selected size as the first entry in the array
     for (var i = 0; i < sizeArray.length; i++) {
         if (sizeArray[i].checked) {
             var selectedSize = sizeArray[i].value;
             text1 = text1 + selectedSize + "<br>";
         }
     }
+    //If-else statements to determine the selected size and store it as variable 'sizeTotal'
     if (selectedSize === "Personal Pizza") {
         sizeTotal = 6;
     } else if (selectedSize === "Small Pizza") {
@@ -22,6 +24,7 @@ function getReceipt() {
         sizeTotal = 16;
     }
     runningTotal = sizeTotal;
+    //Prints current variables to the console
     console.log(selectedSize + " = $" + sizeTotal + ".00");
     console.log("size text1: " + text1);
     console.log("subtotal: $" + runningTotal + ".00");
@@ -31,8 +34,10 @@ function getReceipt() {
 
 function getTopping(runningTotal, text1) {
     var toppingTotal = 0;
+    //Creates an empty array to store the chosen toppings
     var selectedTopping = [];
     var toppingArray = document.getElementsByClassName("toppings");
+    //Adds each chosen topping to the text string 'text1'
     for (var j = 0; j < toppingArray.length; j++) {
         if (toppingArray[j].checked) {
             selectedTopping.push(toppingArray[j].value);
@@ -41,16 +46,19 @@ function getTopping(runningTotal, text1) {
         }
     }
     var toppingCount = selectedTopping.length;
+    //If-else statements for determine number of chargable toppings
     if (toppingCount > 1) {
         toppingTotal = (toppingCount - 1);
     } else {
         toppingTotal = 0;
     }
     runningTotal = (runningTotal + toppingTotal);
+    //Prints current variables to the console
     console.log("total selected topping items: " + toppingCount);
     console.log(toppingCount + " topping - 1 free topping = " + "$" + toppingTotal + ".00");
     console.log("topping text1: " + text1);
     console.log("Purchase Total: " + "$" + runningTotal + ".00");
+    //Returns 'text1' and 'runningTotal' to the HTML document
     document.getElementById("showText").innerHTML = text1;
     document.getElementById("totalPrice").innerHTML = "<h3>Total: <strong>$" + runningTotal + ".00" + "</strong></h3>";
 }
