@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --main-font: 'Gloock', serif;
 }
